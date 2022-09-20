@@ -1,7 +1,7 @@
-function mathOperation(num1, num2, operator) {
-    let result
+function mathFunc(num1, num2, operator) {
+    let result;
 
-    switch (operator) {
+    switch(operator) {
         case '+': result = num1 + num2; break;
         case '-': result = num1 - num2; break;
         case '*': result = num1 * num2; break;
@@ -10,5 +10,8 @@ function mathOperation(num1, num2, operator) {
         case '**': result = num1 ** num2; break;
     }
 
-    console.log(result)
+    console.log(result);
 }
+
+mathFunc(5, 6, '+')
+mathFunc(3, 5.5, '*')

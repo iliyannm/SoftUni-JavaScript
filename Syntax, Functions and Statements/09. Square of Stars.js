@@ -1,12 +1,8 @@
-function printRectangle(param) {
-    if (param == null) {
-        for (let i = 1; i <= 5; i++) {
-            console.log(`* `.repeat(5))
-        }
-    }
-    else {
-        for (let i = 1; i <= param; i++) {
-            console.log(`* `.repeat(param))
-        }
+function drawStars(num) {
+    for (let i = 0; i<num; i++) {
+        console.log(`${'* '.repeat(num)}`)
     }
 }
+
+drawStars(1)
+drawStars(5)

@@ -1,15 +1,12 @@
-function sumOfNumbers(num1, num2) {
-
-    let firstNum = Number(num1)
-    let secondNum = Number(num2)
-    let sum = 0
-
-    for (let i = firstNum; i <= secondNum; i++) {
-        sum += i
+function sumNumbers(startNum, endNum) {
+    let result = 0;
+    
+    for (let i=Number(startNum); i<=Number(endNum); i++) {
+        result += i;
     }
 
-    console.log(sum)
+    console.log(result)
 }
 
-sumOfNumbers('1', '5')
-sumOfNumbers('-8', '20')
+sumNumbers('1', '5')
+sumNumbers('-8', '20')
