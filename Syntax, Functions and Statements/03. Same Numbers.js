@@ -1,20 +1,18 @@
-function checkNumber(num) {
-    let numberAsString = num.toString();
-    let isTheSame = true
-    let fullSum = 0
+function checkNumbers(number) {
+    number = String(number);
+    let sum = Number(number[0]);
+    let different = true;
 
-    for (let i = 1; i <= numberAsString.length; i++) {
-        if (i == numberAsString.length){
-            fullSum += Number(numberAsString[i -1])
-            break;
+    for (let i=1; i < number.length; i++) {
+        sum += Number(number[i]);
+        if (number[i] != number[i - 1]) {
+            different = false;
         }
-        if (numberAsString[i] != numberAsString[i - 1]) {
-            isTheSame = false
-        }
-        
-        fullSum += Number(numberAsString[i - 1])
-      }
+    }
 
-    console.log(isTheSame)
-    console.log(fullSum)
+    console.log(different)
+    console.log(sum)
 }
+
+checkNumbers(2222222)
+checkNumbers(1234)

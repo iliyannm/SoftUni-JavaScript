@@ -5,3 +5,4 @@ function findPreviousDay(year, month, day) {
 }
 
 findPreviousDay(2016, 9, 30)
+findPreviousDay(2016, 10, 1)

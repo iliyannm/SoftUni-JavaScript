@@ -1,28 +1,15 @@
-function cookTheNumbers(num, oper1, oper2, oper3, oper4, oper5) {
-    let lastNumber = Number(num);
-    let operationsArray = [oper1, oper2, oper3, oper4, oper5]
+function cookTheNumbers(num, ...commands) {
+    num = Number(num);
 
-    for (x of operationsArray){
-        if (x == 'chop'){
-            lastNumber /= 2
-            console.log(lastNumber)
+    for (let i=0; i<commands.length; i++) {
+        switch (commands[i]) {
+            case 'chop': num /= 2; break;
+            case 'dice': num = Math.sqrt(num); break;
+            case 'spice': num += 1; break;
+            case 'bake': num *= 3; break;
+            case 'fillet': num -= num * 0.2; break;
         }
-        else if (x == 'dice'){
-            lastNumber = Math.sqrt(lastNumber)
-            console.log(lastNumber)
-        }
-        else if (x == 'spice'){
-            lastNumber += 1
-            console.log(lastNumber)
-        }
-        else if (x == 'bake'){
-            lastNumber *= 3
-            console.log(lastNumber)
-        }
-        else if (x == 'fillet'){
-            lastNumber = (lastNumber * 0.80).toFixed(1)
-            console.log(lastNumber)
-        }    
+        console.log(num) 
     }
 }
 

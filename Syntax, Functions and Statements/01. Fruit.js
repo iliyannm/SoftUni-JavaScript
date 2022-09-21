@@ -1,6 +1,8 @@
-function calculateMoney(fruit, grams, pricePerKg) {
-    let weightInKg = (grams / 1000)
-    let fullAmountMoney = (weightInKg * pricePerKg)
+function calculateMoney(fruit, weightInGrams, pricePerKg) {
+    let weightInKg = weightInGrams / 1000;
 
-    console.log(`I need $${fullAmountMoney.toFixed(2)} to buy ${weightInKg.toFixed(2)} kilograms ${fruit}.`)
+    console.log(`I need $${(weightInKg * pricePerKg).toFixed(2)} to buy ${weightInKg.toFixed(2)} kilograms ${fruit}.`)
 }
+
+calculateMoney('orange', 2500, 1.80)
+calculateMoney('apple', 1563, 2.35)

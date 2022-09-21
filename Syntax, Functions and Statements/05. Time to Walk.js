@@ -1,23 +1,14 @@
-function calculateWalkingTime(steps, studentFootprint, speed) { 
-    allTheWay = steps * studentFootprint;
-    let breaks = Math.floor(allTheWay / 500);
-    let timeWithoutBreaks = Math.ceil((((allTheWay / 1000) / speed) * 60) * 60);
-    let fullTime = (breaks * 60) + timeWithoutBreaks;
+function walking(steps, footprint, speed) {
+    let speedInMeters = speed / 3.6;
+    let allWayInMeters = steps * footprint;
+    let breaks = Math.floor(allWayInMeters / 500);
+    let timeToHome = Math.ceil((allWayInMeters / speedInMeters) + (breaks * 60));
 
-    let hours = Math.floor(fullTime / 3600)
-    if (hours < 10) {
-        hours = String(`0${hours}`)
-    }
-
-    let minutes = Math.floor(fullTime / 60)
-    if (minutes < 10) {
-        minutes = String(`0${minutes}`)
-    }
-    
-    let seconds = (fullTime - (minutes * 60))
-    if (seconds < 10) {
-        seconds = String(`0${seconds}`)
-    }
-
-    console.log(`${hours}:${minutes}:${seconds}`)
+    let hours = Math.floor(timeToHome / 3600);
+    let minutes = Math.floor((timeToHome - hours * 3600) / 60);
+    let seconds = timeToHome - (hours * 3600 + minutes * 60); 
+    console.log(`${hours < 10 ? '0': ''}${hours}:${minutes < 10 ? '0': ''}${minutes}:${seconds < 10 ? '0': ''}${seconds}`)
 }
+
+walking(4000, 0.60, 5)
+walking(2564, 0.70, 5.5)
