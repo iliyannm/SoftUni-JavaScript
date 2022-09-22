@@ -1,8 +1,5 @@
-function solve(array, start, end) {
-    let startIndex = array.indexOf(start);
-    let endIndex = array.indexOf(end) + 1;
-
-    return array.splice(startIndex, endIndex)
+function solve(fullArray, firstPie, lastPie) {
+    return fullArray.slice(fullArray.indexOf(firstPie), fullArray.indexOf(lastPie) + 1);
 }
 
 console.log(solve(['Pumpkin Pie',

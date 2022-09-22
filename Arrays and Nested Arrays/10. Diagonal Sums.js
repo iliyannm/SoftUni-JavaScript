@@ -1,22 +1,13 @@
 function solve(array) {
-    const matrixOfNumbers = [];
-    let mainDiagonal = 0 ;
-    let secondaryDiagonal = 0;
+    let firstDiagonal = 0;
+    let secondDiagonal = 0;
 
-    for (row of array) {
-        let rowOfNums = row.map(str => {return Number(str)});
-        matrixOfNumbers.push(rowOfNums)
-    };
-    
-    for (let i = 0; i < matrixOfNumbers.length; i++) {
-        mainDiagonal += matrixOfNumbers[i][i];
-    };
+    for (r=0; r<array.length; r++){
+        firstDiagonal += array[r][r];
+        secondDiagonal += array[r][array.length - 1 - r];
+    }
 
-    for (let j = 0; j < matrixOfNumbers.length; j++) {
-        secondaryDiagonal += matrixOfNumbers[j][matrixOfNumbers.length - j - 1];
-    };
-
-    console.log(`${mainDiagonal} ${secondaryDiagonal}`);
+    console.log(`${firstDiagonal} ${secondDiagonal}`)
 }
 
 solve([[20, 40],

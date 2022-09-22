@@ -1,18 +1,15 @@
 function solve(array) {
-  let biggestNum;
+    let biggestValue = array[0][0];
 
-  for(let  i = 0; i < array.length; i++) {
-      let row = array[i];
-      for(let j = 0; j < row.length; j++) {
-        if (i == 0 && j == 0) {
-          biggestNum = array[i][j]
-        } else if (array[i][j] > biggestNum) {
-              biggestNum = array[i][j];
-          };
-      }
-  }
+    for (r=0; r<array.length; r++){
+        for (c=0; c<array[r].length; c++) {
+            if (array[r][c] > biggestValue) {
+                biggestValue = array[r][c];
+            } 
+        }
+    }
 
-  return biggestNum;
+    return biggestValue;
 }
 
 
