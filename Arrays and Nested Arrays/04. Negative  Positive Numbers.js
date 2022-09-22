@@ -1,16 +1,15 @@
-function solve(array){
-    const finalArray = [];
-    for (let el of array) {
-        if (Number(el) < 0) {
-            finalArray.unshift(el);
-        } else {
-            finalArray.push(el);
-        }
-    };
+function solve(array) {
+    let result = [];
 
-    for (let num of finalArray) {
-        console.log(num);
+    for (let el of array) {
+        if (el < 0) {
+            result.unshift(el);
+        } else {
+            result.push(el);
+        }
     }
+
+    console.log(result.join('\n'));
 }
 
 solve([7, -2, 8, 9])

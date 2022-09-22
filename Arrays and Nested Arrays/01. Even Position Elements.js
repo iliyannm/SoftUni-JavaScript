@@ -1,10 +1,11 @@
-function solve (array) {
-    const finalArray = []
-    for (i = 0; i < array.length; i += 2){
-        finalArray.push(array[i])
+function solve(elements) {
+    let result = '';
+
+    for (let i=0; i<elements.length; i+=2) {
+        result += `${elements[i]} `;
     }
 
-    console.log(finalArray.join(' '))
+    console.log(result);
 }
 
 solve(['20', '30', '40', '50', '60'])
