@@ -1,4 +1,4 @@
-function orbit(input) {
+function solve(input) {
     let rows = input[0];
     let cols = input[1];
     let starRow = input[2];
@@ -18,4 +18,8 @@ function orbit(input) {
     console.log(matrix.map(row => row.join(" ")).join("\n"));
 }
 
-orbit([3, 3, 2, 2])
+solve([3, 3, 2, 2])
+
+solve([5, 5, 2, 2])
+
+solve([3, 3, 2, 2])

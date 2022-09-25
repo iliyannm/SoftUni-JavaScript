@@ -1,9 +1,11 @@
-function solve(array, rotations) {
-    for (let i = 0; i < rotations; i++) {
-        array.unshift(array.pop());
+function solve(arr, rotations) {
+    let actualRotations = rotations % arr.length;
+
+    for (let i=0; i <actualRotations; i++) {
+        arr.unshift(arr.pop());
     }
 
-    console.log(array.join(` `))
+    console.log(arr.join(' '));
 }
 
 
@@ -13,3 +15,9 @@ solve(['Banana',
 'Coconut', 
 'Apple'], 
 15)
+
+solve(['1', 
+'2', 
+'3', 
+'4'], 
+2)

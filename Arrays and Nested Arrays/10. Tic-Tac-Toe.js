@@ -1,145 +1,129 @@
-function solve(arr) {
-    let row;
-    let col;
-    let isThereWinner = false;
-    let index = 0;
-    let moves = 0;
-
+function solve(moves) {
     matrix = [[false, false, false],
     [false, false, false],
-    [false, false, false]];
+    [false, false, false]]
+    let row;
+    let col;
+    let convertedElement;
+    let counter = 0;
+    let player;
+    let somebodyWon;
+    let nobodyWins;
 
-    while (arr.length != 0) {
-        let currentValue = arr.shift();
-        row = currentValue[0];
-        col = currentValue[2];
-
-        if (index % 2 == 0) {
-            if (matrix[row][col] == 'X' || matrix[row][col] == 'O') {
-                console.log('This place is already taken. Please choose another!');
-                index += 1;
-            };
-
-            if (matrix[row][col] == false) {
-                matrix[row][col] = 'X';
-                moves += 1;
-            };
-
+    for (el of moves) {
+        nobodyWins = true;
+        counter += 1;
+        convertedElement = el.split(' ');
+        row = Number(convertedElement[0]);
+        col = Number(convertedElement[1]);
+        
+        if (counter % 2 == 0) {
+            player = 'O';
         } else {
-            if (matrix[row][col] == 'X' || matrix[row][col] == 'O') {
-                console.log('This place is already taken. Please choose another!');
-                index += 1;
-            };
+            player = 'X';
+        }
 
-            if (matrix[row][col] == false) {
-                matrix[row][col] = 'O';
-                moves += 1;
-            };
-        };
+        if (matrix[row][col] == false) {
+            matrix[row][col] = player;
+        } else {
+            counter += 1;
+            console.log("This place is already taken. Please choose another!")
+        }
 
-        if (matrix[0][0] != false) {
-            if (matrix[0][0] == matrix[0][1] && matrix[0][0] == matrix[0][2]) {
-                if (matrix[0][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            } else if (matrix[0][0] == matrix[1][1] && matrix[0][0] == matrix[2][2]) {
-                if (matrix[0][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            } else if (matrix[0][0] == matrix[1][0] && matrix[0][0] == matrix[2][0]) {
-                if (matrix[0][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            };
-        } else if (matrix[1][0] != false) {
-            if (matrix[1][0] == matrix[1][1] && matrix[0][0] == matrix[1][2]) {
-                if (matrix[1][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            };
-        } else if (matrix[2][0] != false) {
-            if (matrix[2][0] == matrix[2][1] && matrix[0][0] == matrix[2][2]) {
-                if (matrix[2][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            } else if (matrix[2][0] == matrix[1][1] && matrix[2][0] == matrix[0][2]) {
-                if (matrix[2][0] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            };
-        } else if (matrix[0][1] != false){
-            if (matrix[0][1] == matrix[1][1] && matrix[0][1] == matrix[2][1]) {
-                if (matrix[0][1] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            };
-        } else if (matrix[0][2] != false){
-            if (matrix[0][2] == matrix[1][2] && matrix[0][2] == matrix[2][2]) {
-                if (matrix[0][2] == 'X') {
-                    console.log('Player X wins!');
-                    isThereWinner = true;
-                } else {
-                    console.log('Player O wins!');
-                    isThereWinner = true;
-                };
-            };
-        };
+        for (let x=0; x<matrix.length; x++) {
+            somebodyWon = true;
+            for (let y=1; y<matrix.length; y++) {
+                if (matrix[x][y] != matrix[x][y-1] || matrix[x][y] == false){
+                    somebodyWon = false;
+                    break;
+                }
+            }
+            if (somebodyWon) {
+                console.log(`Player ${player} wins!`)
+                break;
+            }
+        }
 
-        if (isThereWinner == true){
+        if (somebodyWon) {
             break;
-        };
+        }
 
-        if (moves == 9){
+        for (let c=0; c<matrix.length; c++) {
+            somebodyWon = true;
+            for (let r=1; r<matrix.length; r++) {
+                if (matrix[r][c] != matrix[r - 1][c] || matrix[r][c] == false){
+                    somebodyWon = false;
+                    break;
+                }
+            }
+            if (somebodyWon) {
+                console.log(`Player ${player} wins!`)
+                break;
+            }
+        }
+
+        if (somebodyWon) {
             break;
-        };
+        }
 
-        index += 1;
-    };
+        for (let l=1; l<matrix.length; l++) {
+            somebodyWon = true;
+            if (matrix[l-1][l-1] != matrix[l][l] || matrix[l][l] == false){
+                somebodyWon = false;
+                    break;
+            }
+        }
 
-    if (isThereWinner == false){
-        console.log('The game ended! Nobody wins :(')
+        if (somebodyWon) {
+            console.log(`Player ${player} wins!`)
+            break;
+        }
+
+        for (let d=1; d<matrix.length; d++) {
+            somebodyWon = true;
+            if (matrix[d-1][matrix.length - d] != matrix[d][matrix.length - d - 1] || matrix[d-1][matrix.length - d] == false){
+                somebodyWon = false;
+                    break;
+            }
+        }
+
+        if (somebodyWon) {
+            console.log(`Player ${player} wins!`)
+            break;
+        }
+
+        for (let eachRow=0; eachRow<matrix.length; eachRow++){
+            for (let eachCol=0; eachCol<matrix.length; eachCol++){
+                if (matrix[eachRow][eachCol] == false) {
+                    nobodyWins = false;
+                    break;
+                }
+            }
+            if (nobodyWins == false){
+                break
+            }
+        }
+
+        if (nobodyWins == true) {
+            console.log('The game ended! Nobody wins :(');
+            break;
+        }
     }
 
-    for (let j = 0; j < matrix.length; j++) {
-        console.log(matrix[j].join('\t'))
+    for (let ro=0; ro<matrix.length; ro++) {
+        console.log(matrix[ro].join("\t"))
     }
 }
 
-solve(["0 0",
-"0 0",
-"1 1",
-"0 1",
-"1 2",
-"0 2",
-"2 2",
-"1 2",
-"2 2",
-"2 1"])
+solve(
+    ["0 1",
+    "0 0",
+    "0 2",
+    "2 0",
+    "1 0",
+    "1 2",
+    "1 1",
+    "2 1",
+    "2 2",
+    "0 0"]
+)

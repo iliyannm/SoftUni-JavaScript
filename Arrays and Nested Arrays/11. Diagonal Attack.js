@@ -1,35 +1,41 @@
-function solve(arr) {
-    let matrix = [];
-    let firstDiagonal = 0;
-    let secondDiagonal = 0;
+function solve(array) {
+    let matrix = array.map(function(x, i, array) {return x.split(' ')})
+    let leftDiagonal = 0;
+    let rightDiagonal = 0;
+    let equalDiagonals = false;
 
-    for (el of arr) {
-        matrix.push(el.split(' '));
+    for (r=0; r<matrix.length; r++) {
+        leftDiagonal += Number(matrix[r][r]);
+        rightDiagonal += Number(matrix[r][matrix.length -r - 1]);
+    }
+    
+    if (leftDiagonal == rightDiagonal) {
+        equalDiagonals = true;
     }
 
-    for (let i = 0; i < matrix.length; i++) {
-        firstDiagonal += Number(matrix[i][i]);
-        secondDiagonal += Number(matrix[i][matrix.length - i - 1]);
-    }
-
-    if (firstDiagonal == secondDiagonal) {
-        for (let j = 0; j < matrix.length; j++) {
-            for (let k = 0; k < matrix[j].length; k++) {
-                if (j != k && (matrix[j].length - j - 1) != k) {
-                    matrix[j][k] = firstDiagonal;
-                };
+    if (equalDiagonals == true) {
+        for (let row=0; row<matrix.length; row++){
+            for (let col=0; col<matrix.length; col++){
+                if (row == col || row == (matrix.length - col - 1)) {
+                    continue;
+                } else {
+                    matrix[row][col] = leftDiagonal;
+                }
             }
         }
-    };
+    }
 
-    for (row of matrix) {
-        console.log(row.join(' '))
-    };
-
+    for (x of matrix) {
+        console.log(x.join(' '))
+    }
 }
 
-solve(['5 3 12 3 1',
-'11 4 23 2 5',
-'101 12 3 21 10',
-'1 4 5 2 2',
-'5 22 33 11 1'])
+
+
+solve(
+    ['5 3 12 3 1',
+    '11 4 23 2 5',
+    '101 12 3 21 10',
+    '1 4 5 2 2',
+    '5 22 33 11 1']
+)

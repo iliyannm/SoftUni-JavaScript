@@ -42,3 +42,4 @@ function solve(row, col) {
 }
 
 console.log(solve(5, 5))
+console.log(solve(3, 3))

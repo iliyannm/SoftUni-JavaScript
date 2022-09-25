@@ -1,26 +1,38 @@
 function solve(matrix) {
-    let isMagical = true;
+    let arrayValues = [];
+    let rowValue;
+    let colValue;
 
-    for (let index = 0; index < matrix.length - 1; index++) {
-        let sumRowOne = matrix[index].reduce((a, b) => a + b, 0);
-        let sumRowTwo = matrix[index + 1].reduce((a, b) => a + b, 0);
-        let sumColOne = 0;
-        let sumColTwo = 0;
-
-        for (let j = 0; j < matrix.length; j++) {
-            sumColOne += matrix[index][j];
-            sumColTwo += matrix[index + 1][j];
+    for (let x = 0; x < matrix.length; x++) {
+        rowValue = 0;
+        colValue = 0;
+        for (let y = 0; y < matrix.length; y++) {
+            rowValue += matrix[x][y];
+            colValue += matrix[y][x];
         }
-
-        if (sumRowOne != sumRowTwo || sumColOne != sumColTwo) {
-            isMagical = false;
-        }
+        arrayValues.push(rowValue);
+        arrayValues.push(colValue);
     }
 
-    return isMagical;
+    for (el of arrayValues) {
+        for (let i=0; i<arrayValues.length; i++) {
+            if (el !== arrayValues[i]) {
+                return false
+            }
+        }
+    }
+    return true
 }
 
 
 console.log(solve([[4, 5, 6],
 [6, 5, 4],
 [5, 5, 5]]))
+
+console.log(solve([[11, 32, 45],
+[21, 0, 1],
+[21, 1, 1]]))
+
+console.log(solve([[1, 0, 0],
+[0, 0, 1],
+[0, 1, 0]]))

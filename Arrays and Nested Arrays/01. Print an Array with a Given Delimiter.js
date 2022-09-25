@@ -1,5 +1,5 @@
-function solve(array, delimeter) {
-    console.log(array.join(delimeter))
+function solve(arr, str) {
+    console.log(arr.join(str))
 }
 
 solve(['One', 
