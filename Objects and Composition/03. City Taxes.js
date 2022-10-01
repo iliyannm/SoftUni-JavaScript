@@ -1,5 +1,5 @@
-function solve(name, population, treasury) {
-    const result = {
+function cityTaxes(name, population, treasury) {
+    return result = {
         name,
         population,
         treasury,
@@ -8,12 +8,16 @@ function solve(name, population, treasury) {
             this.treasury += Math.floor(this.population * this.taxRate)
         },
         applyGrowth(percentage) {
-            this.population += Math.floor(this.population * percentage / 100)
+            this.population += Math.floor(this.population * (percentage / 100))
         },
         applyRecession(percentage) {
-            this.treasury -= Math.floor(this.treasury * percentage / 100)
+            this.treasury -= Math.floor(this.treasury * (percentage / 100))
         }
-    };
-
-    return result;
+    }
 }
+
+const city =
+  cityTaxes('Tortuga',
+  7000,
+  15000);
+console.log(city);

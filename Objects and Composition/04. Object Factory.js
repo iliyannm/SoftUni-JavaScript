@@ -1,17 +1,19 @@
-function factory(lib, arr) {
-    let finalArray = [];
+function factory(library, orders) {
+    let result = [];
 
-    for (let order of arr) {
-        let currentObject = {'name': order.template.name};
-        for (part of order.parts) {
-            currentObject[part] = lib[part];
-        };
+    for (let ord of orders){
+        let currentObjet = {};
+        currentObjet['name'] = ord.template.name;
 
-        finalArray.push(currentObject);
-    };
+        for (part of ord.parts) {
+            currentObjet[part] = library[part];
+        }
 
-    return finalArray;
-};
+        result.push(currentObjet);
+    }
+
+    return result;
+}
 
 
 const library = {

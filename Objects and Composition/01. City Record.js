@@ -1,11 +1,9 @@
-function solve(name, population, treasury) {
-    const result = {
+function solve (name, population, treasury) {
+    return {
         name,
         population,
         treasury
-    };
-
-    return result;
+    }
 }
 
 

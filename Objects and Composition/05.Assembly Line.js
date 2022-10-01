@@ -5,37 +5,37 @@ function createAssemblyLine() {
             car.tempSettings = 21;
             car.adjustTemp = () => {
                 if (car.temp < car.tempSettings) {
-                    car.temp += 1;
+                    car.temp += 1
                 } else if (car.temp > car.tempSettings) {
-                    car.temp -= 1;
+                    car.temp -= 1
                 }
-            };
+            }
         },
 
         hasAudio: (car) => {
-            car.currentTrack = { name: '', artist: '' };
+            car.currentTrack = null;
             car.nowPlaying = () => {
-                if (currentTrack != null) {
-                    console.log(`Now playing ${car.currentTrack.name} by ${car.currentTrack.artist}`)
+                if (car.currentTrack != null) {
+                    console.log(`Now playing '${car.currentTrack.name}' by ${car.currentTrack.artist}`)
                 }
-            };
+            }
         },
 
         hasParktronic: (car) => {
             car.checkDistance = (distance) => {
                 if (distance < 0.1) {
-                    console.log('Beep! Beep! Beep!');
+                    console.log("Beep! Beep! Beep!")
                 } else if (0.1 <= distance < 0.25) {
-                    console.log('Beep! Beep!');
+                    console.log("Beep! Beep!")
                 } else if (0.25 <= distance < 0.5) {
-                    console.log('Beep!')
+                    console.log("Beep!")
                 } else {
                     console.log('')
-                };
-            };
+                }
+            }
         }
-    };
-};
+    }
+}
 
 const assemblyLine = createAssemblyLine();
 

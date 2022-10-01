@@ -1,18 +1,16 @@
-function solve(arr) {
-    const dict = {};
+function solve(array) {
+    let result = {};
 
-    for (let el of arr) {
-        [city, population] = el.split(' <-> ');
-
-        if (dict[city] == undefined) {
-            dict[city] = 0
-        };
-
-        dict[city] += Number(population);
+    for (let element of array) {
+        [city, pop] = element.split(' <-> ')
+        if (result[city] == undefined) {
+            result[city] = 0
+        }
+        result[city] += Number(pop);
     }
 
-    for (c in dict) {
-        console.log(`${c} : ${dict[c]}`)
+    for (let key in result) {
+        console.log(`${key} : ${result[key]}`)
     }
 }
 
@@ -21,3 +19,9 @@ solve(['Sofia <-> 1200000',
     'New York <-> 10000000',
     'Washington <-> 2345000',
     'Las Vegas <-> 1000000'])
+
+solve(['Istanbul <-> 100000',
+'Honk Kong <-> 2100004',
+'Jerusalem <-> 2352344',
+'Mexico City <-> 23401925',
+'Istanbul <-> 1000'])
