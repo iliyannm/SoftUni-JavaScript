@@ -1,24 +1,16 @@
-function solve(arr) {
-    const result = [];
-    class Town{
-        constructor(town, latitude, longitude) {
-            this.Town = town;
-            this.Latitude = Number(latitude);
-            this.Longitude = Number(longitude);
-        }
+function solve(array) {
+    let result = [];
+
+    for (let i=1; i<array.length; i++) {
+        [x, firstCol, secondCol, thirdCol] = array[i].split('|');
+        currentTown = firstCol.trim();
+        currentLatitude = secondCol.trim();
+        currentLongitude = thirdCol.trim();
+        result.push({Town: currentTown, Latitude: Number(Number(currentLatitude).toFixed(2)), Longitude: Number(parseFloat(currentLongitude).toFixed(2))});
     }
 
-    for (let index=1; index<arr.length; index++){
-        let array = arr[index].split('|').map(t => t.trim()).filter(x => x.length != 0)
-        let townName = array[0];
-        let latitude = Number(array[1]).toFixed(2);
-        let longitude = Number(array[2]).toFixed(2);
-        let town = new Town(townName, latitude, longitude);
-        result.push(town);
-    }
-
-    return JSON.stringify(result)
-};
+    console.log(JSON.stringify(result))
+}
 
 solve(['| Town | Latitude | Longitude |',
     '| Sofia | 42.696552 | 23.32601 |',

@@ -1,9 +1,4 @@
-x = 'a,b,c'
+x =' abc'
 
-let reversed = x.split(',')
-
-let [a, b, c] = reversed
-
-console.log(a)
-console.log(b)
-console.log(c)
+console.log(x)
+console.log(x.trim())

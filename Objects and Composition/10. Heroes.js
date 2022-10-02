@@ -32,7 +32,6 @@ function solve() {
 
         return Object.assign(state, canCast(state));
     }
-
     return {mage: mage, fighter: fighter};
 }
 
