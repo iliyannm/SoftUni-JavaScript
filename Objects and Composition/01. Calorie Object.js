@@ -1,14 +1,13 @@
-function solve(arr) {
-    const result = {};
+function solve(array) {
+    let result = {};
 
-    for (let i=0; i<arr.length; i++) {
-        if (i % 2 == 0) {
-            result[arr[i]] = Number(arr[i + 1]); 
-        }
-    };
+    for (let i=0; i<array.length; i+=2) {
+        result[array[i]] = Number(array[i+1]);
+    }
 
     console.log(result);
 }
 
-solve(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']
+solve(
+    ['Yoghurt', '48', 'Rise', '138', 'Apple', '52']
 )

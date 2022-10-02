@@ -1,32 +1,33 @@
 function solve(array) {
-    let productsList = [];
-    let onlyProductNamesList = [];
+    let resultDictionary = {};
+    let itemsArray = [];
 
-    for (el of array) {
-        [product, price] = el.split(' : ');
-        price = Number(price);
-        productsList.push({ product, price });
-        onlyProductNamesList.push(product);
-    };
+    for (element of array) {
+        let [item, price] = element.split(" : ");
+        let keyLetter = item[0];
+        itemsArray.push(item);
+        if (resultDictionary[keyLetter] == undefined) {
+            resultDictionary[keyLetter] = []
+        }
+        resultDictionary[keyLetter].push({ item, price })
+    }
 
-    onlyProductNamesList.sort((a, b) => a.localeCompare(b));
-
-    for (i = 0; i < onlyProductNamesList.length; i++) {
-        if (i == 0) {
-            console.log(onlyProductNamesList[i].charAt(0))
-        } else {
-            if (onlyProductNamesList[i].charAt(0) != onlyProductNamesList[i - 1].charAt(0)) {
-                console.log(onlyProductNamesList[i].charAt(0))
+    for (key of Object.keys(resultDictionary).sort((a, b) => a.localeCompare(b))) {
+        console.log(key);
+        let nestedArrayItems = [];
+        for (el of resultDictionary[key]) {
+            nestedArrayItems.push(el.item);
+        }
+        nestedArrayItems = nestedArrayItems.sort((a, b) => a.localeCompare(b))
+        for (elem of nestedArrayItems) {
+            for (obj of resultDictionary[key]) {
+                if (elem == obj.item) {
+                    console.log(` ${obj.item}: ${obj.price}`)
+                }
             }
-        };
-
-        for (obj of productsList) {
-            if (obj.product == onlyProductNamesList[i]) {
-                console.log(`  ${obj.product}: ${obj.price}`);
-            };
-        };
-    };
-};
+        }
+    }
+}
 
 solve(['Banana : 2',
     'Rubic`s Cube : 5',
@@ -36,3 +37,12 @@ solve(['Banana : 2',
     'Rali Car : 2000000',
     'Pesho : 0.000001',
     'Barrel : 10'])
+
+solve(['Appricot : 20.4',
+    'Fridge : 1500',
+    'TV : 1499',
+    'Deodorant : 10',
+    'Boiler : 300',
+    'Apple : 1.25',
+    'Anti-Bug Spray : 15',
+    'T-Shirt : 10'])

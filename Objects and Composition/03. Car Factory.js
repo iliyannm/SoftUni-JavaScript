@@ -20,3 +20,11 @@ console.log(solve({
     carriage: 'coupe',
     wheelsize: 17
 }))
+
+console.log(solve({
+    model: 'VW Golf II',
+    power: 90,
+    color: 'blue',
+    carriage: 'hatchback',
+    wheelsize: 14
+}))

@@ -1,14 +1,26 @@
-function solve(array) {
+function solve(initialArray) {
     let result = [];
 
-    for (el of array) {
-        let [name, level, items] = el.split(' / ');
-        level = Number(level);
-        items = items ? items.split(', '): [];
+    for (let element of initialArray) {
+        let currentHero = {};
+        let [name, level, items] = element.split(' / ');
+        currentHero['name'] = name;
+        currentHero['level'] = Number(level);
+        currentHero['items'] = []
 
-        result.push({name, level, items})
+        if (items != undefined) {
+            for (item of items.split(', ')) {
+                currentHero['items'].push(item)
+            }
+        }
+
+        result.push(currentHero);
     }
-
     console.log(JSON.stringify(result));
-    
 }
+
+solve(['Isacc / 25 / Apple, GravityGun',
+    'Derek / 12 / BarrelVest, DestructionSword',
+    'Hes / 1 / Desolator, Sentinel, Antara'])
+
+solve(['Jake / 1000 / Gauss, HolidayGrenade'])
