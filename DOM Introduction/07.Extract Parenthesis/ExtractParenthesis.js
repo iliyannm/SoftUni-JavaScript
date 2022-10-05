@@ -1,6 +1,7 @@
 function extract(content) {
     const text = document.getElementById(content).textContent;
-    let result = '';
+
+    let result ='';
 
     const pattern = /\((.+?)\)/g;
 
