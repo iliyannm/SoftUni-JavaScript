@@ -1,4 +1,6 @@
-x =' abc'
+function capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
+}
 
-console.log(x)
-console.log(x.trim())
+console.log(capitalize('armen'))

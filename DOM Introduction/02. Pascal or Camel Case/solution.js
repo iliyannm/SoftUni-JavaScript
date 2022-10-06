@@ -2,10 +2,8 @@ function solve() {
   let text = document.getElementById('text').value;
   let namingConvetion = document.getElementById('naming-convention').value;
   let result = '';
-
   let words = text.split(' ');
-
-
+  
   if (namingConvetion == 'Camel Case') {
     for (let i = 0; i < words.length; i++) {
       words[i] = words[i].toLowerCase()

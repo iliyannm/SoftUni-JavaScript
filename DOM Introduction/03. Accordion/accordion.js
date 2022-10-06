@@ -1,13 +1,12 @@
 function toggle() {
-    let textElement = document.getElementById('extra');
-    let buttonElement = document.getElementsByClassName('button')[0];
+    let button = document.getElementsByClassName('button')[0];
+    let text = document.getElementById('extra');
 
-    if (buttonElement.textContent == 'More'){
-        buttonElement.textContent = 'Less'
-        textElement.style.display = 'block'
-
+    if (button.textContent == 'More') {
+        text.style.display = 'block';
+        button.textContent = 'Less';
     } else {
-        buttonElement.textContent = 'More'
-        textElement.style.display = 'none' 
+        text.style.display = 'none';
+        button.textContent = 'More';
     }
 }
