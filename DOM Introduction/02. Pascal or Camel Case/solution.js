@@ -1,26 +1,17 @@
 function solve() {
-  let text = document.getElementById('text').value;
-  let namingConvetion = document.getElementById('naming-convention').value;
-  let result = '';
-  let words = text.split(' ');
-  
-  if (namingConvetion == 'Camel Case') {
-    for (let i = 0; i < words.length; i++) {
-      words[i] = words[i].toLowerCase()
-      if (i != 0) {
-        words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1)
-      }
-    }
-  } else if (namingConvetion == 'Pascal Case') {
-    for (let i = 0; i < words.length; i++) {
-      words[i] = words[i].toLowerCase()
-      words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1)
-    }
-  } else {
-    return document.getElementById('result').textContent = 'Error!'
-  }
+    let text = document.getElementById('text').value;
+    let convention = document.getElementById('naming-convention').value;
+    let result = [];
 
-  result = words.join('')
+    for (word of text.split(' ')) {
+        result.push(word.charAt(0).toUpperCase() + word.slice(1));
+    }
 
-  document.getElementById('result').textContent = result
+    if (convention = 'Camel Case') {
+        result[0] = result[0].charAt(0).toLowerCase() + result.slice(1);
+    } else if (convention != 'Pascal Case') {
+        result = 'Error!';
+    }
+
+    document.getElementById('result').textContent = result;
 }
