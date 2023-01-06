@@ -1,11 +1,9 @@
-function sumNumbers(startNum, endNum) {
-    let result = 0;
-    
-    for (let i=Number(startNum); i<=Number(endNum); i++) {
-        result += i;
+function sumNumbers(num1, num2) {
+    let finalNum = 0;
+    for (let i=Number(num1); i<=Number(num2); i++) {
+        finalNum += i;
     }
-
-    console.log(result)
+    console.log(finalNum);
 }
 
 sumNumbers('1', '5')

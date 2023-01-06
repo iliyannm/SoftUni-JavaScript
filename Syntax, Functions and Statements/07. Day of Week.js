@@ -1,19 +1,15 @@
 function guessTheDay(day) {
-    let result;
-
-    switch(day) {
-        case 'Monday': result = 1; break;
-        case 'Tuesday': result = 2; break;
-        case 'Wednesday': result = 3; break;
-        case 'Thursday': result = 4; break;
-        case 'Friday': result = 5; break;
-        case 'Saturday': result = 6; break;
-        case 'Sunday': result = 7; break;
-        default: result = 'error'; break;
+    switch (day) {
+        case 'Monday': console.log(1); break;
+        case 'Tuesday': console.log(2); break;
+        case 'Wednesday': console.log(3); break;
+        case 'Thursday': console.log(4); break;
+        case 'Friday': console.log(5); break;
+        case 'Saturday': console.log(6); break;
+        case 'Sunday': console.log(7); break;
+        default: console.log('error'); break
     }
-
-    console.log(result);
-}
+} 
 
 guessTheDay('Monday')
 guessTheDay('Friday')

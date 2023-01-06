@@ -1,19 +1,23 @@
 function aggregateElements(array) {
-    const sum = array.reduce(
-        (partialSum, a) => 
-        partialSum + a, 0);
+    let sum = 0;
+    let inverseSum = 0;
+    let arrayAsOneNumber = '';
 
-    const inverseSum = array.reduce(
-        (partialSum, a) => 
-        partialSum + 1 /a, 0);
-    
-    const arrOfStr = array.map(num => {
-        return String(num);
+    array.forEach(item => {
+        sum += item;
       });
-    
-    console.log(sum);
-    console.log(inverseSum);
-    console.log(arrOfStr.join(''));
+
+    array.forEach(item => {
+        inverseSum += 1 / item;
+      });
+
+    array.forEach(item => {
+        arrayAsOneNumber += String(item);
+    })
+
+    console.log(sum)
+    console.log(inverseSum)
+    console.log(arrayAsOneNumber)
 }
 
 aggregateElements([1, 2, 3])

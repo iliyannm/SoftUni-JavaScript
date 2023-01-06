@@ -1,7 +1,6 @@
 function countTheDays(month, year) {
-    let result = new Date(year, month, 0).getDate();
-
-    console.log(result);
+    let days = new Date(year, month, 0).getDate();
+    console.log(days);
 }
 
 countTheDays(1, 2012)
