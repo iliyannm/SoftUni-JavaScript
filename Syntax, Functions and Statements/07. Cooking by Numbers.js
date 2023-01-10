@@ -1,5 +1,5 @@
-function cookTheNumbers(num, ...commands) {
-    num = Number(num);
+function cookTheNumbers(number, ...commands) {
+    num = Number(number);
 
     for (let i=0; i<commands.length; i++) {
         switch (commands[i]) {
@@ -7,9 +7,9 @@ function cookTheNumbers(num, ...commands) {
             case 'dice': num = Math.sqrt(num); break;
             case 'spice': num += 1; break;
             case 'bake': num *= 3; break;
-            case 'fillet': num -= num * 0.2; break;
+            case 'fillet': num -= 0.2 * num; break
         }
-        console.log(num) 
+        console.log(num);
     }
 }
 

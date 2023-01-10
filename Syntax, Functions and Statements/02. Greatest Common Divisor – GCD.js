@@ -1,9 +1,13 @@
 function findGreatestDiv(num1, num2) {
-    if (num2) {
-        return findGreatestDiv(num2, num1 % num2);
-    } else {
-        console.log(num1)
+    let divisor;
+
+    for (let i=0; i<=num1 && i<=num2; i++) {
+        if (num1 % i == 0 && num2 % i == 0) {
+            divisor = i;
+        }
     }
+
+    console.log(divisor)
 }
 
 findGreatestDiv(15, 5)
