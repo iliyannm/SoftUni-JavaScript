@@ -1,5 +1,5 @@
-function solve(fullArray, firstPie, lastPie) {
-    return fullArray.slice(fullArray.indexOf(firstPie), fullArray.indexOf(lastPie) + 1);
+function solve(array, start, end) {
+    return array.slice(array.indexOf(start), array.indexOf(end) + 1);
 }
 
 console.log(solve(['Pumpkin Pie',

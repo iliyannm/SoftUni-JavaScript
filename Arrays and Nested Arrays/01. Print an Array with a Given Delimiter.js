@@ -1,5 +1,5 @@
-function solve(arr, str) {
-    console.log(arr.join(str))
+function solve(array, separator) {
+    console.log(array.join(separator));
 }
 
 solve(['One', 

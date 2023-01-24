@@ -1,23 +1,22 @@
 function solve(n, k) {
-    let finalArray = [1];
-    let currentValue;
+    let result = [1];
+    let currentNum = 0;
 
     for (let i=1; i<n; i++) {
-        currentValue = 0;
-        if ((i - k) < 0) {
-            for (let j=0; j<i; j++) {
-                currentValue += finalArray[j];
+        if (i-k > 0) {
+            for (let y = i-k; y<i; y++) {
+                currentNum += result[y];
             }
-            finalArray.push(currentValue);
         } else {
-            for (let j=i-k; j<i; j++) {
-                currentValue += finalArray[j];
+            for (let x=0; x<i; x++) {
+                currentNum += result[x];
             }
-            finalArray.push(currentValue);
-        } 
+        }
+        result.push(currentNum);
+        currentNum = 0;
     }
 
-    return finalArray;
+    return result;
 }
 
 console.log(solve(6, 3))

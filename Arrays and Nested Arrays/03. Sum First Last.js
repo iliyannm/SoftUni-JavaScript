@@ -1,9 +1,6 @@
-function solve(someArray) {
-    copyOfSomeArray = someArray.slice();
-
-    return Number(someArray.shift()) + Number(copyOfSomeArray.pop());
+function solve(array) {
+    return Number(array.pop()) + Number(array.shift())
 }
 
 console.log(solve(['20', '30', '40']))
 console.log(solve(['5', '10']))
-console.log(solve(['5']))

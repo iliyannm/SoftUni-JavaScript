@@ -1,5 +1,5 @@
-function solve (arr, n) {
-    return arr.filter((x, i) => i % n == 0)
+function solve (array, step) {
+    return array.filter((x, i) => i % step == 0)
 }
 
 console.log(solve(['5', 

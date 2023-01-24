@@ -10,7 +10,7 @@ function solve(array) {
         array.splice(index, 1);
     }
     
-    console.log(result.join(' '))
+    console.log(result)
 }
 
 solve([30, 15, 50, 5])

@@ -1,13 +1,13 @@
-function solve(array) {
-    let firstDiagonal = 0;
-    let secondDiagonal = 0;
+function solve (matrix) {
+    let leftDiagonal = 0;
+    let rightDiagonal = 0;
 
-    for (r=0; r<array.length; r++){
-        firstDiagonal += array[r][r];
-        secondDiagonal += array[r][array.length - 1 - r];
+    for (let i=0; i<matrix.length; i++) {
+        leftDiagonal += Number(matrix[i][i]);
+        rightDiagonal += Number(matrix[i][matrix.length - i - 1]);
     }
 
-    console.log(`${firstDiagonal} ${secondDiagonal}`)
+    console.log(`${leftDiagonal} ${rightDiagonal}`);
 }
 
 solve([[20, 40],

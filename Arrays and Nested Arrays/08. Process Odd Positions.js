@@ -1,4 +1,4 @@
-function solve (array) {
+function solve(array) {
     return array
     .filter((x, i) => i % 2 != 0)
     .map(x => x * 2)

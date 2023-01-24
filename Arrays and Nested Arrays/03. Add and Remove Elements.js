@@ -1,8 +1,8 @@
-function solve (arr) {
+function solve (array) {
     let num = 0;
     let newArr = [];
 
-    for (command of arr) {
+    for (command of array) {
         num += 1;
 
         if (command == 'add') {

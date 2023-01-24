@@ -1,11 +1,9 @@
-function solve(arr, rotations) {
-    let actualRotations = rotations % arr.length;
-
-    for (let i=0; i <actualRotations; i++) {
-        arr.unshift(arr.pop());
+function solve (array, num) {
+    for (let i=0; i<num; i++ ) {
+        array.unshift(array.pop());
     }
 
-    console.log(arr.join(' '));
+    console.log(array.join(' '));
 }
 
 

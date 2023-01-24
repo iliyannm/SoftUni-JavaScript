@@ -1,23 +1,24 @@
-function solve(matrix) {
+function solve (matrix) {
     let matches = 0;
 
-    for (r = 0; r < matrix.length; r++) {
-        for (c = 0; c < matrix[r].length; c++) {
-            if (r + 1 < matrix.length) {
-                if (matrix[r][c] === matrix[r + 1][c]) {
-                    matches += 1;
-                }
-            };
-            if (c + 1 < matrix[r].length) {
-                if (matrix[r][c] === matrix[r][c + 1]) {
-                    matches += 1;
-                    }
+    for (let i=0; i<matrix.length; i++) {
+        for (let y=0; y<matrix[i].length; y++) {
+            if (y + 1 != matrix[i].length) {
+                if (matrix[i][y] == matrix[i][y+1]) {
+                    matches ++;
                 }
             }
-        }
+            if (i+1 != matrix.length){
+                if (matrix[i][y] == matrix[i+1][y]) {
+                    matches ++;
+                }
+            }   
+        }        
+    }
 
-    return matches
+    return matches;
 }
+
 
 console.log(solve([['2', '3', '4', '7', '0'],
 ['4', '0', '5', '3', '4'],

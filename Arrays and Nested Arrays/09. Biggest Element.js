@@ -1,15 +1,13 @@
 function solve(array) {
-    let biggestValue = array[0][0];
+    let biggest = array[0][0];
 
-    for (r=0; r<array.length; r++){
-        for (c=0; c<array[r].length; c++) {
-            if (array[r][c] > biggestValue) {
-                biggestValue = array[r][c];
-            } 
+    for (let arr of array) {
+        if (Math.max(...arr) > biggest) {
+            biggest = Math.max(...arr);
         }
     }
 
-    return biggestValue;
+    return biggest;
 }
 
 
