@@ -1,4 +1,4 @@
-function solve (name, population, treasury) {
+function solve(name, population, treasury) {
     return {
         name,
         population,

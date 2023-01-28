@@ -1,16 +1,16 @@
 function solve(array) {
-    let result = {};
+    let cityDict = {};
 
-    for (let element of array) {
-        [city, pop] = element.split(' <-> ')
-        if (result[city] == undefined) {
-            result[city] = 0
+    for (let str of array) {
+        [city, population] = str.split(' <-> ');
+        if (cityDict[city] == undefined) {
+            cityDict[city] = 0;
         }
-        result[city] += Number(pop);
+        cityDict[city] += Number(population);
     }
 
-    for (let key in result) {
-        console.log(`${key} : ${result[key]}`)
+    for (let key in cityDict) {
+        console.log(`${key} : ${cityDict[key]}`)
     }
 }
 
