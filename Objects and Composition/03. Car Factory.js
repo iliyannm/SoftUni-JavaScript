@@ -1,25 +1,33 @@
-function solve(wantedCar) {
-    let engines = [{ power: 90, volume: 1800 }, { power: 120, volume: 2400 }, { power: 200, volume: 3500 }];
-    let carriages = [{ type: 'hatchback', color: wantedCar.color }, { type: 'coupe', color: wantedCar.color }];
-    let wheelsize = wantedCar.wheelsize % 2 == 1 ? wantedCar.wheelsize: wantedCar.wheelsize - 1;
+function solve (car) {
+    let completeCar = {};
+    let smallEngine = { power: 90, volume: 1800 };
+    let normalEngine = { power: 120, volume: 2400 };
+    let monsterEngine = { power: 200, volume: 3500 };
 
-    return {
-        model: wantedCar.model,
-        engine: engines.filter(e => e.power >= wantedCar.power)[0],
-        carriage: carriages.filter(c => c.type == wantedCar.carriage)[0],
-        wheels: [wheelsize, wheelsize, wheelsize, wheelsize]
+    completeCar.model = car.model;
+
+    if (car.power <= 90) {
+        completeCar.engine = smallEngine;
+    } else if (car.power <= 120) {
+        completeCar.engine = normalEngine;
+    } else {
+        completeCar.engine = monsterEngine;
     }
-};
 
+    completeCar.carriage = {
+        'type': car.carriage,
+        'color': car.color
+    };
 
+    if (car.wheelsize % 2 ==0) {
+        car.wheelsize -= 1;
+    }
 
-console.log(solve({
-    model: 'Opel Vectra',
-    power: 110,
-    color: 'grey',
-    carriage: 'coupe',
-    wheelsize: 17
-}))
+    completeCar.wheels = [car.wheelsize, car.wheelsize, car.wheelsize, car.wheelsize]
+
+    return completeCar;
+}
+
 
 console.log(solve({
     model: 'VW Golf II',
@@ -27,4 +35,12 @@ console.log(solve({
     color: 'blue',
     carriage: 'hatchback',
     wheelsize: 14
+}))
+
+console.log(solve({
+    model: 'Opel Vectra',
+    power: 110,
+    color: 'grey',
+    carriage: 'coupe',
+    wheelsize: 17
 }))

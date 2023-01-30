@@ -1,7 +1,7 @@
-function solve(initialArray) {
+function solve(array) {
     let result = [];
 
-    for (let element of initialArray) {
+    for (let element of array) {
         let currentHero = {};
         let [name, level, items] = element.split(' / ');
         currentHero['name'] = name;
