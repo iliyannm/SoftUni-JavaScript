@@ -1,10 +1,8 @@
 function sumTable() {
-    const elementsArray = Array.from(document.getElementsByTagName('tr')).slice(1, -1);
+    let elements = Array.from(document.querySelectorAll('tr')).slice(1, -1);
     let sum = 0;
-
-    for (let elem of elementsArray) {
-        sum += Number(elem.lastElementChild.textContent);
+    for (el of elements) {
+        sum += Number(el.children[1].textContent)
     }
-
-    document.getElementById('sum').textContent = sum;
+    document.querySelector('#sum').textContent = sum;
 }

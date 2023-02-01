@@ -1,6 +1,5 @@
 function calc() {
-    let firstEl = Number(document.getElementById('num1').value);
-    let secondEl = Number(document.getElementById('num2').value);
-
-    document.getElementById('sum').value = firstEl + secondEl;
+    let num1 = Number(document.querySelector('#num1').value)
+    let num2 = Number(document.querySelector('#num2').value)
+    document.querySelector('#sum').value = num1 + num2;
 }
