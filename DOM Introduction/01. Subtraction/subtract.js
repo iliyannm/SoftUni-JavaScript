@@ -1,6 +1,6 @@
 function subtract() {
-    let firstValue = Number(document.getElementById('firstNumber').value);
-    let secondValue = Number(document.getElementById('secondNumber').value);
+    let num1 = Number(document.querySelector('#firstNumber').value)
+    let num2 = Number(document.querySelector('#secondNumber').value)
 
-    document.getElementById('result').textContent = firstValue - secondValue;
+    document.querySelector('#result').textContent = num1 - num2
 }

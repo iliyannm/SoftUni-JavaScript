@@ -1,17 +1,14 @@
-function solve () {
-   let collection = document.getElementsByTagName('tbody tr');
-   let keyWord = document.getElementById('searchField');
+function solve() {
    document.querySelector('#searchBtn').addEventListener('click', onClick);
-
+   let collection = document.querySelectorAll('tbody tr');
+   let keyWord = document.querySelector('#searchField');
 
    function onClick() {
-      for (let el of collection) {
+      for (el of collection) {
          el.classList.remove('select')
          if (el.innerHTML.includes(keyWord.value)) {
-            el.className = 'select'
+            el.className = 'select';
          }
       }
-
-   keyWord.value = ''
-   }
+   }   
 }

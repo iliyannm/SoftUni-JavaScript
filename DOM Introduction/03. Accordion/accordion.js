@@ -1,12 +1,11 @@
 function toggle() {
-    let button = document.getElementsByClassName('button')[0];
-    let text = document.getElementById('extra');
+    let command = document.querySelector('.button').textContent;
 
-    if (button.textContent == 'More') {
-        text.style.display = 'block';
-        button.textContent = 'Less';
-    } else {
-        text.style.display = 'none';
-        button.textContent = 'More';
+    if (command == 'More') {
+        document.querySelector('.button').textContent = 'Less';
+        document.querySelector('#extra').style.display = 'block';
+    } else if (command = 'Less') {
+        document.querySelector('.button').textContent = 'More';
+        document.querySelector('#extra').style.display = 'none';
     }
 }

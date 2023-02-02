@@ -1,17 +1,22 @@
 function solve() {
-    let text = document.getElementById('text').value;
-    let convention = document.getElementById('naming-convention').value;
-    let result = [];
+    let text = document.querySelector('#text').value;
+    let convention = document.querySelector('#naming-convention').value;
+    let transformedText = text.split(' ')
+    let finalText = [];
+    let result;
 
-    for (word of text.split(' ')) {
-        result.push(word.charAt(0).toUpperCase() + word.slice(1));
+    for (let word of transformedText) {
+        finalText.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
     }
 
-    if (convention = 'Camel Case') {
-        result[0] = result[0].charAt(0).toLowerCase() + result.slice(1);
-    } else if (convention != 'Pascal Case') {
-        result = 'Error!';
+    if (convention == 'Pascal Case') {
+        result = finalText.join('')
+    } else if (convention == 'Camel Case') {
+        finalText[0] = finalText[0].charAt(0).toLowerCase() + finalText[0].slice(1).toLowerCase();
+        result = finalText.join('');
+    } else {
+        result = 'Error!'
     }
 
-    document.getElementById('result').textContent = result;
+    document.querySelector('#result').textContent = result;
 }
