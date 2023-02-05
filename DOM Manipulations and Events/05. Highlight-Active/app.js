@@ -1,5 +1,5 @@
 function focused() {
-    Array.from(document.querySelectorAll('input')).forEach(
+    [...document.querySelectorAll('input')].forEach(
         i => {
             i.addEventListener('focus', onFocus);
             i.addEventListener('blur', onBlur);

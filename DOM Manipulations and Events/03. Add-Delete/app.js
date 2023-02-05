@@ -1,23 +1,14 @@
 function addItem() {
-    let list = document.getElementById('items');
-    let input = document.getElementById('newItemText');
-    let newLi = document.createElement('li');
-    newLi.textContent = input.value;
-    list.addEventListener('click', onDelete)
+    let items = document.getElementById('items');
+    let newElement = document.getElementById('newItemText')
+    let li = document.createElement('li');
+    li.innerHTML = newElement.value + '<a href="#">[Delete]</a>';
+    items.appendChild(li);
+    newElement.value = '';
 
-    let deleteBtn = document.createElement('a');
-    deleteBtn.textContent = '[Delete]';
-    deleteBtn.href = '#';
-    newLi.appendChild(deleteBtn);
+    Array.from(document.querySelectorAll('a')).forEach(a => a.addEventListener('click', onCLick));
 
-    //deleteBtn.addEventListener('click', onDelete)
-
-    document.getElementById('items').appendChild(newLi);
-    document.getElementById('newItemText').value = '';
-
-    function onDelete(event) {
-        if (event.target.tagName = 'A') {
-            event.target.parentElement.remove();
-        }
+    function onCLick(event) {
+        event.target.parentElement.remove();
     }
 }
