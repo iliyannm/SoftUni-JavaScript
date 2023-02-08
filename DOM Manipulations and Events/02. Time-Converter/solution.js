@@ -1,31 +1,29 @@
 function attachEventsListeners() {
-    let main = document.querySelector('main');
-    let elements = document.querySelectorAll('div input');
-    let input = 0;
-    main.addEventListener('click', convertData);
+    let buttons = document.querySelectorAll("input[type='button']");
+    [...buttons].forEach(b => b.addEventListener('click', convert));
+    let number;
 
-
-    function convertData(event) {
+    function convert(event) {
         if (event.target.id == 'daysBtn') {
-            input = Number(elements[0].value);
-            elements[2].value = input * 24;
-            elements[4].value = input * 24 * 60;
-            elements[6].value = input * 24 * 60 * 60;
-        } else if (event.target.id == 'hoursBtn') {
-            input = elements[2].value;
-            elements[0].value = input / 24;
-            elements[4].value = input * 60;
-            elements[6].value = input * 60 * 60;
-        } else if (event.target.id == 'minutesBtn') {
-            input = elements[4].value;
-            elements[0].value = input / 60 / 24;
-            elements[2].value = input / 60;
-            elements[6].value = input * 60;
-        } else if (event.target.id == 'secondsBtn') {
-            input = elements[6].value;
-            elements[0].value = input / 60 / 60 / 24;
-            elements[2].value = input / 60 / 60;
-            elements[4].value = input / 60;
+            number = Number(event.target.previousElementSibling.value);
+            document.querySelector('input[id="hours"]').value = number * 24;
+            document.querySelector('input[id="minutes"]').value = number * 24 * 60;
+            document.querySelector('input[id="seconds"]').value = number * 24 * 60 * 60;
+        } else if (event.target.id == 'hoursBtn'){
+            number = Number(event.target.previousElementSibling.value);
+            document.querySelector('input[id="days"]').value = number / 24;
+            document.querySelector('input[id="minutes"]').value = number * 60;
+            document.querySelector('input[id="seconds"]').value = number * 60 * 60;
+        } else if (event.target.id == 'minutesBtn'){
+            number = Number(event.target.previousElementSibling.value);
+            document.querySelector('input[id="days"]').value = number /60 / 24;
+            document.querySelector('input[id="hours"]').value = number / 60;
+            document.querySelector('input[id="seconds"]').value = number * 60;
+        } else if (event.target.id == 'secondsBtn'){
+            number = Number(event.target.previousElementSibling.value);
+            document.querySelector('input[id="days"]').value = number / 60 / 60 / 24;
+            document.querySelector('input[id="hours"]').value = number / 60/ 60;
+            document.querySelector('input[id="minutes"]').value = number / 60;
         }
     }
 }

@@ -1,6 +1,1 @@
-function capitalize(s)
-{
-    return s[0].toUpperCase() + s.slice(1);
-}
-
-console.log(capitalize('armen'))
+console.log('e'.charCodeAt(0) + 1)
